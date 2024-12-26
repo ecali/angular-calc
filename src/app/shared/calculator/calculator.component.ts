@@ -32,9 +32,10 @@ export class CalculatorComponent {
   pressKey = (keyVal: string) => {
     const lastHistoryItem = this.history.at(-1);
 
+    console.log(lastHistoryItem);
     if(this.operatorsButtons.includes(keyVal)) {
       this.handleOperationKey(keyVal, lastHistoryItem);
-    }else if(lastHistoryItem !== '=' || keyVal !== '.'){
+    }else if(lastHistoryItem !== '=' && keyVal !== '.'){
       this.handleNumber(keyVal)
     }
   }
