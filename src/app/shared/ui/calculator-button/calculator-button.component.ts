@@ -4,7 +4,7 @@ import {Component, Input} from '@angular/core';
   selector: 'app-calculator-button',
   imports: [],
   template: `
-    <button class="w-full px-4 py2 rounded bg-gary-700 text-gray-100">{{label}}</button>
+    <button class="w-full px-4 py2 rounded bg-gray-700 text-gray-100">{{label}}</button>
   `,
   styles: ``
 })

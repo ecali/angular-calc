@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
+import {CalculatorButtonComponent} from '../ui/calculator-button/calculator-button.component';
 
 @Component({
   selector: 'app-calculator',
-  imports: [],
+  imports: [
+    CalculatorButtonComponent
+  ],
   templateUrl: './calculator.component.html',
   styles: ``
 })
