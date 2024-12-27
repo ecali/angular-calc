@@ -32,11 +32,22 @@ export class CalculatorComponent {
   pressKey = (keyVal: string) => {
     const lastHistoryItem = this.history.at(-1);
 
-    console.log(lastHistoryItem);
     if(this.operatorsButtons.includes(keyVal)) {
       this.handleOperationKey(keyVal, lastHistoryItem);
-    }else if(lastHistoryItem !== '=' || keyVal !== '.'){
-      this.handleNumber(keyVal)
+    }else if((lastHistoryItem !== '=' || keyVal !== '.') && keyVal !== 'c') {
+      this.handleNumber(keyVal);
+    }else if(keyVal === 'c' && !this.calculated){
+      this.handleCanc();
+    }
+  }
+
+  handleCanc = () => {
+    if(this.operator === null){
+      this.displayNumber = this.displayNumber === '0' || this.displayNumber.length === 1 ? '0' : this.displayNumber.slice(0, -1);
+      this.firstOperand = Number(this.displayNumber);
+    }else{
+      this.displayNumber = this.displayNumber === '0' || this.displayNumber.length === 1 ? '0' : this.displayNumber.slice(0, -1);
+      this.secondOperand = Number(this.displayNumber);
     }
   }
 
@@ -45,7 +56,8 @@ export class CalculatorComponent {
       this.displayNumber = this.displayNumber === '0' ? val : this.displayNumber + val;
       this.firstOperand = Number(this.displayNumber);
     }else{
-      this.displayNumber = this.secondOperand === null ? val : this.displayNumber + val;
+      console.log(this.displayNumber);
+      this.displayNumber = this.secondOperand === null || this.secondOperand === 0 ? val : this.displayNumber + val;
       this.secondOperand = Number(this.displayNumber);
     }
   }

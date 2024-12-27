@@ -1,14 +1,16 @@
-<div class="flex items-center justify-center min-h-screen flex-col ">
+<div class="flex items-center justify-center min-h-screen flex-col bg-gray-300 ">
   <div class="text-center my-4 md:block hidden">
     <h1 class="text-4xl font-bold uppercase">{{title}}</h1>
   </div>
-  <div class="flex flex-col w-96 gap-4 bg-gray-950 rounded-xl p-4">
-    <div class="rounded-xl overflow-x-hidden px-4 py-6 border text-2xl text-gray-100 border-gray-700 flex items-end flex-col">
+  <div class="flex flex-col w-96 gap-4 bg-gray-950 rounded-xl p-4 h-[100vh] md:h-auto shadow-2xl ">
+    <div class="md:flex-none md:h-[120px] flex-1 justify-between rounded-xl overflow-x-hidden px-4 py-6 border text-2xl text-gray-100 border-gray-700 flex items-end flex-col">
       <p class="text-xs">{{history.join(' ')}}</p>
       {{displayNumber}}
     </div>
+    <div class="flex justify-end text-xs text-gray-500">Made with ❤️ by Elvio</div>
     <div class="grid grid-cols-4 gap-3">
-      <app-calculator-button (click)="clear()" class="col-span-3" label="C"></app-calculator-button>
+      <app-calculator-button (click)="clear()" class="col-span-2" label="AC"></app-calculator-button>
+      <app-calculator-button (click)="pressKey('c')" variant="yellow" label="C"></app-calculator-button>
       <app-calculator-button (click)="pressKey('/')" variant="yellow" label="/"></app-calculator-button>
       <app-calculator-button (click)="pressKey('7')" label="7"></app-calculator-button>
       <app-calculator-button (click)="pressKey('8')" label="8"></app-calculator-button>
