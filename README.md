@@ -1,59 +1,104 @@
-# AngularCalc
+# Calculator
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
+A simple and interactive calculator built using Angular. This app showcases the core functionality of a basic calculator, including addition, subtraction, multiplication, division, and chained calculations. The application is modular and easy to extend for future enhancements.
 
-## Development server
+## Features
 
-To start a local development server, run:
+- Basic arithmetic operations: `+`, `-`, `*`, `/`
+- Supports chained calculations
+- Clear functionality to reset inputs
+- Handles edge cases like division by zero
+- Clean and reusable components
 
-```bash
-ng serve
+## Prerequisites
+
+Ensure you have the following installed on your system:
+
+- [Node.js](https://nodejs.org/) (v14 or higher)
+- [Angular CLI](https://angular.io/cli) (v12 or higher)
+
+## Getting Started
+
+Follow these steps to run the application locally:
+
+1. **Clone the Repository:**
+
+   ```bash
+   git clone <repository_url>
+   cd <repository_directory>
+   ```
+
+2. **Install Dependencies:**
+
+   ```bash
+   npm install
+   ```
+
+3. **Run the Application:**
+
+   ```bash
+   ng serve
+   ```
+
+4. Open your browser and navigate to:
+
+   ```
+   http://localhost:4200
+   ```
+
+## Project Structure
+
+```
+├── src
+│   ├── app
+│   │   ├── calculator
+│   │   │   ├── calculator.component.ts
+│   │   │   ├── calculator.component.html
+│   │   │   ├── calculator.component.css
+│   │   │   └── calculator.component.spec.ts
+│   │   ├── ui
+│   │   │   └── calculator-button
+│   │   │       ├── calculator-button.component.ts
+│   │   │       ├── calculator-button.component.html
+│   │   │       ├── calculator-button.component.css
+│   │   │       └── calculator-button.component.spec.ts
+│   ├── assets
+│   └── environments
+├── angular.json
+├── package.json
+└── README.md
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Usage
 
-## Code scaffolding
+### Calculator Functionality
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- **Numbers:** Click any number button to input numbers.
+- **Operators:** Use `+`, `-`, `*`, `/` for operations.
+- **Equals (`=`):** Calculate the result of the current operation.
+- **Clear (`C`):** Reset the calculator to its initial state.
 
-```bash
-ng generate component component-name
-```
+### Example
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+1. Input: `8 + 2 =`
+  - Output: `10`
+2. Chaining: `10 * 3 =`
+  - Output: `30`
+3. Division by Zero: `5 / 0 =`
+  - Output: `Infinity`
 
-```bash
-ng generate --help
-```
+## Running Tests
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+To execute the unit tests for the application:
 
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
+This will run the tests defined in `calculator.component.spec.ts` and other spec files, providing detailed results.
 
-For end-to-end (e2e) testing, run:
+## Acknowledgments
 
-```bash
-ng e2e
-```
+- Built using [Angular](https://angular.io/)
+- Inspired by the simplicity of traditional calculators
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
