@@ -2,12 +2,12 @@
   <div class="text-center my-4 md:block hidden">
     <h1 class="text-4xl font-bold uppercase">{{title}}</h1>
   </div>
-  <div class="flex flex-col w-96 gap-4 bg-gray-950 rounded-xl p-2">
+  <div class="flex flex-col w-96 gap-4 bg-gray-950 rounded-xl p-4">
     <div class="rounded-xl overflow-x-hidden px-4 py-6 border text-2xl text-gray-100 border-gray-700 flex items-end flex-col">
       <p class="text-xs">{{history.join(' ')}}</p>
       {{displayNumber}}
     </div>
-    <div class="grid grid-cols-4 gap-4">
+    <div class="grid grid-cols-4 gap-3">
       <app-calculator-button (click)="clear()" class="col-span-3" label="C"></app-calculator-button>
       <app-calculator-button (click)="pressKey('/')" variant="yellow" label="/"></app-calculator-button>
       <app-calculator-button (click)="pressKey('7')" label="7"></app-calculator-button>
