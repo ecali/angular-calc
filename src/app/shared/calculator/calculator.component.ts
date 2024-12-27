@@ -35,7 +35,7 @@ export class CalculatorComponent {
     console.log(lastHistoryItem);
     if(this.operatorsButtons.includes(keyVal)) {
       this.handleOperationKey(keyVal, lastHistoryItem);
-    }else if(lastHistoryItem !== '=' && keyVal !== '.'){
+    }else if(lastHistoryItem !== '=' || keyVal !== '.'){
       this.handleNumber(keyVal)
     }
   }
