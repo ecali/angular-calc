@@ -52,14 +52,21 @@ export class CalculatorComponent {
   }
 
   handleNumber = (val: string): void => {
-    if(this.operator === null){
-      this.displayNumber = this.displayNumber === '0' ? val : this.displayNumber + val;
-      this.firstOperand = Number(this.displayNumber);
-    }else{
-      this.displayNumber = this.secondOperand === null || this.secondOperand === 0 ? val : this.displayNumber + val;
-      this.secondOperand = Number(this.displayNumber);
+    if (this.operator === null) {
+      if (this.displayNumber.length < 15) {
+        this.displayNumber = this.displayNumber === '0' ? val : this.displayNumber + val;
+        this.firstOperand = Number(this.displayNumber);
+      }
+    } else {
+      if (this.secondOperand === null || this.displayNumber === this.firstOperand?.toString()) {
+        this.displayNumber = val;
+        this.secondOperand = Number(this.displayNumber);
+      } else if (this.displayNumber.length < 15) {
+        this.displayNumber += val;
+        this.secondOperand = Number(this.displayNumber);
+      }
     }
-  }
+  };
 
   handleOperationKey = (keyVal: string, lastHistoryItem: string | undefined): void => {
     if(keyVal === '='){
