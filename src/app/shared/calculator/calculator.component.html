@@ -13,7 +13,7 @@
     </div>
     <div class="flex justify-end text-xs text-gray-500">Made with ❤️ by Elvio</div>
     <div class="grid grid-cols-4 gap-3">
-      <app-calculator-button (click)="clear()" class="col-span-2" label="AC"></app-calculator-button>
+      <app-calculator-button (click)="pressKey('AC')" class="col-span-2" label="AC"></app-calculator-button>
       <app-calculator-button (click)="pressKey('c')" variant="yellow" label="C"></app-calculator-button>
       <app-calculator-button (click)="pressKey('/')" variant="yellow" label="/"></app-calculator-button>
       <app-calculator-button (click)="pressKey('7')" label="7"></app-calculator-button>
