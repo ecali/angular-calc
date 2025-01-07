@@ -108,4 +108,24 @@ describe('CalculatorComponent', () => {
     expect(component.calculated).toBeFalse();
   });
 
+  it('should not allow the first operand to exceed 15 digits', () => {
+    for (let i = 0; i < 20; i++) {
+      component.pressKey('1');
+    }
+    expect(component.displayNumber.length).toBeLessThanOrEqual(15);
+    expect(component.displayNumber).toBe('111111111111111');
+    expect(component.firstOperand).toBe(111111111111111);
+  });
+
+  it('should not allow the second operand to exceed 15 digits', () => {
+    component.pressKey('1');
+    component.pressKey('+');
+    for (let i = 0; i < 20; i++) {
+      component.pressKey('2');
+    }
+    expect(component.displayNumber.length).toBeLessThanOrEqual(15);
+    expect(component.displayNumber).toBe('222222222222222');
+    expect(component.secondOperand).toBe(222222222222222);
+  });
+
 });
