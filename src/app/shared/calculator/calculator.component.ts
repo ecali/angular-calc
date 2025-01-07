@@ -56,7 +56,6 @@ export class CalculatorComponent {
       this.displayNumber = this.displayNumber === '0' ? val : this.displayNumber + val;
       this.firstOperand = Number(this.displayNumber);
     }else{
-      console.log(this.displayNumber);
       this.displayNumber = this.secondOperand === null || this.secondOperand === 0 ? val : this.displayNumber + val;
       this.secondOperand = Number(this.displayNumber);
     }
