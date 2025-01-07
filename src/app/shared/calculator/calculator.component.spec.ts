@@ -35,6 +35,9 @@ describe('CalculatorComponent', () => {
     component.pressKey('5');
     expect(component.displayNumber).toBe('5');
     expect(component.firstOperand).toBe(5);
+    component.pressKey('3');
+    expect(component.displayNumber).toBe('53');
+    expect(component.firstOperand).toBe(53);
   });
 
   it('should handle operator key press', () => {
@@ -86,5 +89,23 @@ describe('CalculatorComponent', () => {
     expect(component.displayNumber).toBe('8');
   });
 
+  it('should not calculate when insufficient operands are provided', () => {
+    component.pressKey('+');
+    component.pressKey('=');
+    expect(component.displayNumber).toBe('0');
+  });
+
+  it('should clear all values when clear key is pressed', () => {
+    component.pressKey('9');
+    component.pressKey('+');
+    component.pressKey('3');
+    component.clear();
+    expect(component.displayNumber).toBe('0');
+    expect(component.firstOperand).toBeNull();
+    expect(component.secondOperand).toBeNull();
+    expect(component.operator).toBeNull();
+    expect(component.history).toEqual([]);
+    expect(component.calculated).toBeFalse();
+  });
 
 });
