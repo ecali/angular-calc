@@ -128,4 +128,27 @@ describe('CalculatorComponent', () => {
     expect(component.secondOperand).toBe(222222222222222);
   });
 
+  it('should delete the last character of the current number when "C" is pressed', () => {
+    component.pressKey('1');
+    component.pressKey('2');
+    component.pressKey('3');
+    expect(component.displayNumber).toBe('123');
+    component.pressKey('c');
+    expect(component.displayNumber).toBe('12');
+    component.pressKey('c');
+    expect(component.displayNumber).toBe('1');
+    component.pressKey('c');
+    expect(component.displayNumber).toBe('0');
+    component.pressKey('1');
+    component.pressKey('+');
+    component.pressKey('4');
+    component.pressKey('5');
+    expect(component.displayNumber).toBe('45');
+    component.pressKey('c');
+    expect(component.displayNumber).toBe('4');
+    component.pressKey('c');
+    expect(component.displayNumber).toBe('0');
+  });
+
+
 });
