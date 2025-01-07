@@ -51,6 +51,9 @@ Follow these steps to run the application locally:
 ```
 ├── src
 │   ├── app
+│   │   ├── services
+│   │   │   ├── calculator.service.ts
+│   │   │   ├── calculator.service.spec.ts
 │   │   ├── calculator
 │   │   │   ├── calculator.component.ts
 │   │   │   ├── calculator.component.html
@@ -75,8 +78,12 @@ Follow these steps to run the application locally:
 
 - **Numbers:** Click any number button to input numbers.
 - **Operators:** Use `+`, `-`, `*`, `/` for operations.
+- **Point:** Use `.` to use decimal number.
 - **Equals (`=`):** Calculate the result of the current operation.
-- **Clear (`C`):** Reset the calculator to its initial state.
+- **Cancel (`C`):** Cancel last digit.
+- **Clear (`AC`):** Reset the calculator to its initial state.
+
+****_You can use your physical keyboard to input values_****
 
 ### Example
 
