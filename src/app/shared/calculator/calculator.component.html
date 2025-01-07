@@ -3,9 +3,13 @@
     <h1 class="text-4xl font-bold uppercase">{{title}}</h1>
   </div>
   <div class="flex flex-col w-96 gap-4 bg-gray-950 rounded-xl p-4 h-[100vh] md:h-auto shadow-2xl ">
-    <div class="md:flex-none md:h-[120px] flex-1 justify-between rounded-xl overflow-x-hidden px-4 py-6 border text-2xl text-gray-100 border-gray-700 flex items-end flex-col">
-      <p class="text-xs">{{history.join(' ')}}</p>
-      {{displayNumber}}
+    <div class="md:flex-none md:h-[120px] flex-1 justify-between rounded-xl overflow-hidden px-4 py-6 border text-2xl text-gray-100 border-gray-700 flex flex-col">
+      <div class="text-xs text-gray-400 overflow-y-auto max-h-[80px] w-full break-words">
+        {{history.join(' ')}}
+      </div>
+      <div class="text-2xl font-bold text-right mt-2">
+        {{displayNumber}}
+      </div>
     </div>
     <div class="flex justify-end text-xs text-gray-500">Made with ❤️ by Elvio</div>
     <div class="grid grid-cols-4 gap-3">
