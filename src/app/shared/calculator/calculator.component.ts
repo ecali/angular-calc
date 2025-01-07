@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, HostListener} from '@angular/core';
 import {CalculatorButtonComponent} from '../ui/calculator-button/calculator-button.component';
 
 @Component({
@@ -20,6 +20,20 @@ export class CalculatorComponent {
   history: string[] = [];
   calculated: boolean = false;
 
+  @HostListener('document:keydown', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    const key = event.key;
+    if (!isNaN(Number(key))) {
+      this.pressKey(key);
+    } else if (this.operatorsButtons.includes(key)) {
+      this.pressKey(key);
+    } else if (key === 'Enter') {
+      this.pressKey('=');
+    } else if (key === 'Backspace') {
+      this.pressKey('c');
+    }
+  }
+
   clear = (): void => {
     this.firstOperand = null;
     this.secondOperand = null;
@@ -31,7 +45,6 @@ export class CalculatorComponent {
 
   pressKey = (keyVal: string) => {
     const lastHistoryItem = this.history.at(-1);
-
     if(this.operatorsButtons.includes(keyVal)) {
       this.handleOperationKey(keyVal, lastHistoryItem);
     }else if((lastHistoryItem !== '=' || keyVal !== '.') && keyVal !== 'c') {
